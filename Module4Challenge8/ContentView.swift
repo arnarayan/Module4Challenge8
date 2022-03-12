@@ -9,8 +9,26 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+  
+        GeometryReader { geo in
+            ScrollView{
+                VStack(alignment:.leading) {
+                    ForEach(1..<30) { index in
+                        LazyVStack(alignment:.leading) {
+                            //Text("\(String(index))")
+                            Rectangle()
+                                .foregroundColor(.orange)
+                                .scaledToFit()
+                                .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
+                        }.frame(width: geo.size.width, height: geo.size.height, alignment:.bottomTrailing)
+                            .foregroundColor(.blue)
+                    }
+                }
+
+
+                
+            }
+        }
     }
 }
 
